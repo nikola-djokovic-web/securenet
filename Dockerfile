@@ -9,8 +9,6 @@
     WORKDIR /app
     COPY --from=deps /app/node_modules ./node_modules
     COPY . .
-    # Prisma klijent pre Next build-a
-    RUN npx prisma generate
     RUN npm run build
     
     # --- runtime ---
@@ -19,7 +17,13 @@
     ENV NODE_ENV=production
     ENV HOST=0.0.0.0
     ENV PORT=3000
-    COPY --from=builder /app ./
+    
+    # umesto da kopiraš *ceo* /app, kopiraj samo što ti treba
+    COPY --from=builder /app/package*.json ./
+    COPY --from=builder /app/node_modules ./node_modules
+    COPY --from=builder /app/.next ./.next
+    COPY --from=builder /app/public ./public
+    
     EXPOSE 3000
     CMD ["npm", "run", "start", "--", "-p", "3000", "-H", "0.0.0.0"]
     
