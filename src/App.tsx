@@ -521,8 +521,8 @@ export default function App() {
                       <Typography variant="h6">Kontakt</Typography>
                       <Typography sx={{ mt: 1 }}>
                         Email:{" "}
-                        <MUILink href="mailto:info@securenet.rs">
-                          info@securenet.rs
+                        <MUILink href="mailto:support@securenet.rs">
+                          support@securenet.rs
                         </MUILink>
                       </Typography>
                       <Typography>Telefon: +381 11 123 456</Typography>
@@ -535,7 +535,7 @@ export default function App() {
                         variant="contained"
                         size="large"
                         sx={{ mt: 2 }}
-                        href="mailto:info@securenet.rs"
+                        href="mailto:support@securenet.rs"
                       >
                         Zatraži ponudu
                       </Button>
