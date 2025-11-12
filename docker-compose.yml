@@ -5,11 +5,11 @@ services:
     build: .
     container_name: securenet-main
     restart: always
-    ports:
-      - "8085:80"
+    expose:
+      - "80"
     networks:
-      - web
+      - nginx-proxy-manager_default
 
 networks:
-  web:
-    driver: bridge
+  nginx-proxy-manager_default:
+    external: true
