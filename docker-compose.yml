@@ -5,13 +5,6 @@ services:
     restart: always
     networks:
       - web
-    labels:
-      - 'traefik.enable=true'
-      - 'traefik.http.routers.vue.rule=Host(`securenet.rs`)'
-      - 'traefik.http.routers.vue.entrypoints=websecure'
-      - 'traefik.http.routers.vue.tls.certresolver=myresolver'
-      - 'traefik.http.services.vue.loadbalancer.server.port=80'
-
 networks:
   web:
     external: true
