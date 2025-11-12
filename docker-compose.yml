@@ -6,7 +6,7 @@ services:
     container_name: securenet-main
     restart: always
     ports:
-      - "8085:8000"
+      - "8085:3000"
     networks:
       - web
 
